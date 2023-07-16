@@ -4,6 +4,7 @@ import { useAppContext } from './context/store';
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Spinner from 'react-bootstrap/Spinner';
 
 import GameCard from './components/GameCard';
 
@@ -16,22 +17,27 @@ export default function Home() {
   const[loading,setLoading]=useState(true);
 
   useEffect(()=>{
-    const fetchGames=async()=>{
+    const fetchTopGames=async()=>{
         const response=await fetch('/api/online-games');
         const fetchedGames= await response.json();
         setLoading(false);
-        setGames(fetchedGames);
+        setGames(fetchedGames.slice(0,8));
     }
-    fetchGames()
+    fetchTopGames()
 
   },[])
+
+  if(loading){
+    return  <Spinner animation="grow" variant="dark" />
+  }
 
   return (
       <main className={styles.main}>
         <Container>
-          <Row>
+          <h1>Browser Games</h1>
+          <Row >
           {games.map(game=>
-                        <Col key={game.id} sm={12} md={6} lg={4} xl={3}>
+                        <Col key={game.id} sm={12} md={6} lg={4} xl={3} style={{marginTop:'1rem'}}>
                           <GameCard game={game}/>
                         </Col>
                     )}
