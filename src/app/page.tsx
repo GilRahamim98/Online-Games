@@ -5,12 +5,12 @@ import { useAppContext } from './context/store';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Spinner from 'react-bootstrap/Spinner';
+import  Col  from 'react-bootstrap/Col';
 
 import GameCard from './components/GameCard';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styles from './page.module.css'
-import { Col } from 'react-bootstrap';
 
 export default function Home() {
   const{games,setGames}=useAppContext();
@@ -28,7 +28,7 @@ export default function Home() {
   },[])
 
   if(loading){
-    return  <Spinner animation="grow" variant="dark" />
+    return <Spinner animation="grow" variant="dark" />
   }
 
   return (
