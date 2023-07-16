@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import { AppProvider } from './context/store'
 import { Inter } from 'next/font/google'
 import Header from './components/Header'
 
@@ -18,9 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head><meta name="viewport" content="width=device-width, initial-scale=1" /></head>
-      <body>
+      <body suppressHydrationWarning={true}>
+      <AppProvider>
+
         <Header/>
         <main>{children}</main>
+        </AppProvider>
+
         </body>
     </html>
   )
