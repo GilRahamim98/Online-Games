@@ -1,3 +1,5 @@
+'use client'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -6,15 +8,22 @@ import Badge from 'react-bootstrap/Badge';
 
 
 const GameCard = ({game}:any) => {
+    const pathname = usePathname()  
+
   return (
         <Card style={{ width: '18rem',minHeight:'100%'}} bg='dark' text='white'>
         <Card.Img variant="top" src={game.thumbnail} />
         <Card.Body>
             <Card.Title>
-                {game.title}{' '} 
-            <Badge bg="light" text="dark" pill>
+                {game.title}{' '}
+            {
+                pathname.includes('categories')?
+                null:
+                <Badge bg="light" text="dark" pill>
                 {game.genre}
-            </Badge></Card.Title>
+                </Badge>
+            }
+            </Card.Title>
             <Card.Text>
                 {game.short_description}
             </Card.Text>
