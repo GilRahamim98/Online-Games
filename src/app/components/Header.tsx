@@ -28,7 +28,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link href="/all-games" className={pathname.includes('all-games')?'nav-link active':'nav-link'}>All Games</Link>
+            <Link href="/allgames" className={pathname.includes('allgames')?'nav-link active':'nav-link'}>All Games</Link>
             <Link href="/categories"  className={pathname.includes('categories')?'nav-link active':'nav-link'}>Categories</Link>
           </Nav>
         </Navbar.Collapse>

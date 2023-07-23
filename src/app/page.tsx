@@ -16,6 +16,7 @@ export default function Home() {
   const{games,setGames}=useAppContext();
   const[loading,setLoading]=useState(true);
 
+
   useEffect(()=>{
     const fetchTopGames=async()=>{
         const response=await fetch('/api/online-games');

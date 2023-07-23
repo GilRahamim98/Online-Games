@@ -1,0 +1,19 @@
+.main{
+    background: #000;
+    color: white;
+    min-height: 100vh;
+}
+
+.page_link{
+    background: #000;
+    color: white;
+}
+.page_link.active{
+    background: #eb6864;
+    color: black;
+}
+
+.page_item{
+    background: #000;
+    color: white;
+}
